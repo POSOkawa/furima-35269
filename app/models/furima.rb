@@ -1,5 +1,5 @@
 class Furima < ApplicationRecord
- extend ActiveStorage::Associations::ActiveRecordExtensions
+ extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :basyo
    belongs_to :category
     belongs_to :futan
