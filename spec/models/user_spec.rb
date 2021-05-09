@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages).to include("Nickname can't be blank")
     end
     it 'emailが空では登録できない' do
-      # emailが空では登録できないテストコードを記述します
+      
       user = User.new(nickname: 'test', email: '', password: '00000a', password_confirmation: '00000a', name: '漢字', kana: 'アア', namef: '漢字', kanaf: 'アア', birthd: '1930-03-03')
       user.valid?
       expect(user.errors.full_messages).to include("Email can't be blank")
@@ -58,11 +58,7 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors.full_messages).to include("Password is invalid")
     end
-    it 'passが全角があると登録できない' do
-      user = User.new(nickname: 'test', email: 'test@example', password: '00000A', password_confirmation: '00000A', name: '漢字', kana: 'アア', namef: '漢字', kanaf: 'アア', birthd: '1930-03-03')
-      user.valid?
-      expect(user.errors.full_messages).to include("Password is invalid")
-    end
+
     it 'pass確認がないと登録できない' do
       user = User.new(nickname: 'test', email: 'test@example', password: '00000a', password_confirmation: '', name: '漢字', kana: 'アア', namef: '漢字', kanaf: 'アア', birthd: '1930-03-03')
       user.valid?
