@@ -7,4 +7,4 @@ class FurimasController < ApplicationController
 
   end
 
-  
+end

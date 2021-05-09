@@ -11,8 +11,7 @@ class User < ApplicationRecord
          validates :kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "全角カタカナを使用してください" }
          validates :kanaf, format: { with: /\A[ァ-ヶー－]+\z/, message: "全角カタカナを使用してください" }
          validates :birthd
-         validates :password, length: { minimum: 6 }, format: { with: /\A[a-z0-9]+\z/i, message: "英数字文字6以上"}
-
-         validates :password,format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/}
+         validates :password, length: { minimum: 6, message: "英数字文字6以上" }
+         validates :password,format:{with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/i}
          end
 end
