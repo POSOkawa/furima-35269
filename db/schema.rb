@@ -52,8 +52,10 @@ ActiveRecord::Schema.define(version: 2021_05_03_072525) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "kana", default: "", null: false
+    t.string "kanaf", default: "", null: false
     t.string "nickname", default: "", null: false
     t.string "name", default: "", null: false
+    t.string "namef", default: "", null: false
     t.date "birthd", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
