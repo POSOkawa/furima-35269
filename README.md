@@ -12,17 +12,17 @@ application up and running.
 | nickname     | string | null: false |
 | email    | string | null: false |
 | password | string | null: false |
-| birthd | string | null: false |
+| birthd | date | null: false |
 
 ## items テーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | name   | string | null: false |
-| setumei   | string | null: false |
-| price   | string | null: false |
+| setumei   | text | null: false |
+| price   | integer | null: false |
 | user   | references | null: false, foreign_key: true |
-| article   | references | null: false |
+| status_id   | references | null: false |
 
 
 ## comments テーブル
