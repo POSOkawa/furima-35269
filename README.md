@@ -49,14 +49,12 @@ application up and running.
 | sityoson  | string| null: false |
 | banti   | string | null: false |
 | tatemono   | string |
-| user   | references | null: false, foreign_key: true |
-| furima   | references | null: false, foreign_key: true |
 | whobuy   | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :user
+belongs_to :whobuy
 
 ## whobuy テーブル
 | Column | Type   | Options     |
@@ -67,3 +65,4 @@ application up and running.
 
 - belongs_to :user
 - belongs_to :furima
+has_one_to :wheredeli
