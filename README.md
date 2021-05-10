@@ -8,29 +8,28 @@ application up and running.
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | name     | string | null: false |
+| namef     | string | null: false |
 | kana    | string | null: false |
+| kanaf    | string | null: false |
 | nickname     | string | null: false |
 | email    | string | null: false |
 | password | string | null: false |
-| birthd | string | null: false |
+| birthd | date | null: false |
 
-## items テーブル
+## furimas テーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | name   | string | null: false |
-| setumei   | string | null: false |
-| price   | string | null: false |
+| setumei   | text | null: false |
+| price   | integer | null: false |
 | user   | references | null: false, foreign_key: true |
-| article   | references | null: false |
+| basyo_id   | integer | null: false |
+| category_id   | integer | null: false |
+| futan_id   | integer | null: false |
+| hassou_id   | integer | null: false |
+| jyoutai_id   | integer | null: false |
 
-
-## comments テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| item   | references | null: false, foreign_key: true |
 
 Things you may want to cover:
 
