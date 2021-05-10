@@ -16,6 +16,7 @@ application up and running.
 | password | string | null: false |
 | birthd | date | null: false |
 
+
 ## furimas テーブル
 
 | Column | Type   | Options     |
