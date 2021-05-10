@@ -19,7 +19,7 @@ application up and running.
 
 ### Association
 - has_many :furima
-- belongs_to :wheredelis
+- has_many :whobuy
 
 ## furimas テーブル
 
@@ -38,7 +38,7 @@ application up and running.
 ### Association
 
 - belongs_to :user
-- belongs_to :whobuy
+- has_one :whobuy
 
 ## wheredelis テーブル
 | Column | Type   | Options     |
@@ -51,6 +51,8 @@ application up and running.
 | tatemono   | string |
 | user   | references | null: false, foreign_key: true |
 | furima   | references | null: false, foreign_key: true |
+| whobuy   | references | null: false, foreign_key: true |
+
 
 ### Association
 
@@ -61,7 +63,6 @@ application up and running.
 | ------ | ------ | ----------- |
 | user   | references | null: false, foreign_key: true |
 | furima   | references | null: false, foreign_key: true |
-
 ### Association
 
 - belongs_to :user
