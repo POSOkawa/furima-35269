@@ -31,6 +31,23 @@ application up and running.
 | hassou_id   | integer | null: false |
 | jyoutai_id   | integer | null: false |
 
+## wheredelis テーブル
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| todofuken_id   | integer | null: false |
+| yubin   | date | null: false |
+| phone   | date | null: false |
+| sityoson  |  | null: false |
+| banti   | text | null: false |
+| tatemono   | text | null: true |
+
+## whobuy テーブル
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| user   | references | null: false, foreign_key: true |
+| furima   | references | null: false, foreign_key: true |
+| whiredeli   | references | null: false, foreign_key: true |
+
 
 Things you may want to cover:
 
