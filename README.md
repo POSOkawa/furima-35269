@@ -12,8 +12,8 @@ application up and running.
 | kana    | string | null: false |
 | kanaf    | string | null: false |
 | nickname     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| email    | string | null: false, unique: true |
+| encrypted_password | string | null: false |
 | birthd | date | null: false |
 
 
@@ -34,37 +34,15 @@ application up and running.
 ## wheredelis テーブル
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| todofuken_id   | integer | null: false |
-| yubin   | date | null: false |
-| phone   | date | null: false |
-| sityoson  |  | null: false |
-| banti   | text | null: false |
-| tatemono   | text | null: true |
+| basyo_id   | integer | null: false |
+| yubin   | string | null: false |
+| phone   | string | null: false |
+| sityoson  | string| null: false |
+| banti   | string | null: false |
+| tatemono   | string |
 
 ## whobuy テーブル
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | user   | references | null: false, foreign_key: true |
 | furima   | references | null: false, foreign_key: true |
-| whiredeli   | references | null: false, foreign_key: true |
-
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
