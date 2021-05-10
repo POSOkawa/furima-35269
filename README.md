@@ -26,14 +26,14 @@ application up and running.
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | name   | string | null: false |
-| setumei   | text | null: false |
+| info   | text | null: false |
 | price   | integer | null: false |
 | user   | references | null: false, foreign_key: true |
-| basyo_id   | integer | null: false |
+| prefecture_id   | integer | null: false |
 | category_id   | integer | null: false |
-| futan_id   | integer | null: false |
-| hassou_id   | integer | null: false |
-| jyoutai_id   | integer | null: false |
+| shipping_fee_status_id   | integer | null: false |
+| delivery_day_id   | integer | null: false |
+| sales_status_id   | integer | null: false |
 
 ### Association
 
@@ -43,12 +43,12 @@ application up and running.
 ## wheredelis テーブル
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| basyo_id   | integer | null: false |
-| yubin   | string | null: false |
+| prefecture_id   | integer | null: false |
+| postal_code  | string | null: false |
 | phone   | string | null: false |
-| sityoson  | string| null: false |
-| banti   | string | null: false |
-| tatemono   | string |
+| city  | string| null: false |
+| address   | string | null: false |
+| building_name   | string |
 | whobuy   | references | null: false, foreign_key: true |
 
 
