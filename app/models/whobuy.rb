@@ -1,0 +1,2 @@
+class Whobuy < ApplicationRecord
+end

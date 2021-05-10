@@ -1,0 +1,2 @@
+class WheredeliController < ApplicationController
+end

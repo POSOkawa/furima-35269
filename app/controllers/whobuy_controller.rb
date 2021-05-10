@@ -1,0 +1,2 @@
+class WhobuyController < ApplicationController
+end

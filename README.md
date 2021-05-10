@@ -16,6 +16,7 @@ application up and running.
 | encrypted_password | string | null: false |
 | birthd | date | null: false |
 
+
 ### Association
 - has_many :furima
 - belongs_to :wheredelis
