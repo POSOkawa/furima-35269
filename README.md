@@ -18,8 +18,8 @@ application up and running.
 
 
 ### Association
-- has_many :furima
-- has_many :whobuy
+- has_many :furimas
+- has_many :whobuys
 
 ## furimas テーブル
 
@@ -65,4 +65,4 @@ belongs_to :whobuy
 
 - belongs_to :user
 - belongs_to :furima
-has_one_to :wheredeli
+has_one :wheredeli
