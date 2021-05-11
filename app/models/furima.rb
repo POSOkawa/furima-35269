@@ -9,16 +9,16 @@ class Furima < ApplicationRecord
   belongs_to :user
    has_one_attached :image
  
-   validates :name
-   validates :image
-    validates :setumei
-    validates :price
+   validate :name
+   validate :image
+    validate :setumei
+    validate :price
     
-    validates :basyo_id
-    validates :category_id
-   validates :futan_id
-    validates :hassou_id
-    validates :jyoutai_id
+    validate :basyo_id
+    validate :category_id
+   validate :futan_id
+    validate :hassou_id
+    validate :jyoutai_id
 
     with_options format: { with: /\A[0-9]+\z/ } do
       validates :price, numericality: { greater_than: 299, less_than: 100000000 } 
