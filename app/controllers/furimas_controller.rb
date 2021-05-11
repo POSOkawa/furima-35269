@@ -34,7 +34,7 @@ class FurimasController < ApplicationController
   end
 
 
-  #def destroy
+  def destroy
     @furima = Furima.find(params[:id])
   @furima.destroy
 
