@@ -4,7 +4,7 @@ class FurimasController < ApplicationController
   before_action :contributor_confirmation, only: [:edit, :update]
 
   def index
-    @furimas = Furima.all(created_at: "DESC")
+    @furimas = Furima.all.order(created_at: "DESC")
   end
 
   def new
