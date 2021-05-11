@@ -1,5 +1,5 @@
 class FurimasController < ApplicationController
-  before_action :back_to_login, except: [:index, :show]
+  #before_action :back_to_login, except: [:index, :show]
   
   def index
     @furimas = Furima.all
@@ -18,34 +18,7 @@ class FurimasController < ApplicationController
     end
   end
 
-  def show
-    @furima = Furima.find(params[:id])
-  end
-
-  def edit
-    @furima = Furima.find(params[:id])
-  end
-
-  def update
-    @furima = Furima.find(params[:id])
-    if @furima.update(furimas_params)
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
-
-
-  def destroy
-    @furima = Furima.find(params[:id])
-  @furima.destroy
-
-    if @furima.destroy
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
-  end
+  
 
   private
   def furimas_params
