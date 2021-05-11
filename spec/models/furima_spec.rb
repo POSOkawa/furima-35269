@@ -29,27 +29,27 @@ describe Furima do
       expect(@furima.errors.full_messages).to include("Setumei can't be blank")
     end
     it 'idで0が選択された場合は登録されない' do
-      @furima.jyoutai_id = '0'
+      @furima.jyoutai_id = 0
       @furima.valid?
       expect(@furima.errors.full_messages).to include("Jyoutai must be other than 0")
     end
     it 'idで0が選択された場合は登録されない' do
-      @furima.category_id = '0'
+      @furima.category_id = 0
       @furima.valid?
       expect(@furima.errors.full_messages).to include("Category must be other than 0")
     end
       it 'idで0が選択された場合は登録されない' do
-        @furima.basyo_id = '0'
+        @furima.basyo_id = 0
         @furima.valid?
         expect(@furima.errors.full_messages).to include("Basyo must be other than 0")
       end
         it 'idで0が選択された場合は登録されない' do
-          @furima.futan_id_id = '0'
+          @furima.futan_id_id = 0
           @furima.valid?
           expect(@furima.errors.full_messages).to include("Futan must be other than 0")
         end
           it 'idで0が選択された場合は登録されない' do
-            @furima.hassou_id = '0'
+            @furima.hassou_id = 0
             @furima.valid?
             expect(@furima.errors.full_messages).to include("Hassou must be other than 0")
           end
