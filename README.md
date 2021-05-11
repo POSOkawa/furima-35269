@@ -12,9 +12,14 @@ application up and running.
 | kana    | string | null: false |
 | kanaf    | string | null: false |
 | nickname     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| email    | string | null: false, unique: true |
+| encrypted_password | string | null: false |
 | birthd | date | null: false |
+
+
+### Association
+- has_many :furimas
+- has_many :whobuys
 
 ## furimas テーブル
 
@@ -30,23 +35,34 @@ application up and running.
 | hassou_id   | integer | null: false |
 | jyoutai_id   | integer | null: false |
 
+### Association
 
-Things you may want to cover:
+- belongs_to :user
+- has_one :whobuy
 
-* Ruby version
+## wheredelis テーブル
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| basyo_id   | integer | null: false |
+| yubin   | string | null: false |
+| phone   | string | null: false |
+| sityoson  | string| null: false |
+| banti   | string | null: false |
+| tatemono   | string |
+| whobuy   | references | null: false, foreign_key: true |
 
-* System dependencies
 
-* Configuration
+### Association
 
-* Database creation
+belongs_to :whobuy
 
-* Database initialization
+## whobuy テーブル
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| user   | references | null: false, foreign_key: true |
+| furima   | references | null: false, foreign_key: true |
+### Association
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- belongs_to :user
+- belongs_to :furima
+has_one :wheredeli
