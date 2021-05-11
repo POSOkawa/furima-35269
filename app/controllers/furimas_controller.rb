@@ -2,7 +2,7 @@ class FurimasController < ApplicationController
   before_action :back_to_login, except: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
-  before_action :set_furima, only: ["show", "edit"]
+  before_action :set_furima, only: ["update", "edit"]
 
   def index
     #@furimas = Furima.all
@@ -60,5 +60,11 @@ class FurimasController < ApplicationController
   def back_to_login
     redirect_to new_user_session_path unless user_signed_in?
   end
-
+  
+  def contributor_confirmation
+  
+    unless current_user == @user
+      redirect_to root_path
+    end
+    end
 end
