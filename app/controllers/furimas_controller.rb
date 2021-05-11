@@ -1,9 +1,11 @@
 class FurimasController < ApplicationController
-
   before_action :back_to_login, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+  before_action :set_furima, only: ["show", "edit"]
 
   def index
-    @furimas = Furima.all
+    #@furimas = Furima.all
   end
 
   def new
@@ -20,11 +22,9 @@ class FurimasController < ApplicationController
   end
 
   def show
-    @furima = Furima.find(params[:id])
   end
 
   def edit
-    @furima = Furima.find(params[:id])
   end
 
   def update
@@ -60,4 +60,5 @@ class FurimasController < ApplicationController
   def back_to_login
     redirect_to new_user_session_path unless user_signed_in?
   end
+
 end
