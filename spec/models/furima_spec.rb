@@ -29,14 +29,30 @@ describe Furima do
       expect(@furima.errors.full_messages).to include("Setumei can't be blank")
     end
     it 'idで0が選択された場合は登録されない' do
-      @furima.category_id = '0'
-      @furima.basyo_id = '0'
-      @furima.futan_id = '0'
-      @furima.hassou_id = '0'
       @furima.jyoutai_id = '0'
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Basyo must be other than 0", "Category must be other than 0", "Futan must be other than 0", "Hassou must be other than 0", "Jyoutai must be other than 0")
+      expect(@furima.errors.full_messages).to include("Jyoutai must be other than 0")
     end
+    it 'idで0が選択された場合は登録されない' do
+      @furima.category_id = '0'
+      @furima.valid?
+      expect(@furima.errors.full_messages).to include("Category must be other than 0")
+    end
+      it 'idで0が選択された場合は登録されない' do
+        @furima.basyo_id = '0'
+        @furima.valid?
+        expect(@furima.errors.full_messages).to include("Basyo must be other than 0")
+      end
+        it 'idで0が選択された場合は登録されない' do
+          @furima.futan_id_id = '0'
+          @furima.valid?
+          expect(@furima.errors.full_messages).to include("Futan must be other than 0")
+        end
+          it 'idで0が選択された場合は登録されない' do
+            @furima.hassou_id = '0'
+            @furima.valid?
+            expect(@furima.errors.full_messages).to include("Hassou must be other than 0")
+          end
     it 'priceが空では登録されない' do
       @furima.price = ""
       @furima.valid?
@@ -48,12 +64,12 @@ describe Furima do
       expect(@furima.errors.full_messages).to include("Price is not a number")
     end
     it 'priceが300より少ないと登録できない' do
-      @furima.price = "50"
+      @furima.price = 50
       @furima.valid?
       expect(@furima.errors.full_messages).to include("Price must be greater than 299")
     end
     it 'priceが9999999より多いと登録できない' do
-      @furima.price = "600000000"
+      @furima.price = 600000000
       @furima.valid?
       expect(@furima.errors.full_messages).to include("Price must be less than 100000000")
     end
