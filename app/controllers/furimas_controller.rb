@@ -1,5 +1,5 @@
 class FurimasController < ApplicationController
-
+  before_action :back_to_login, except: [:index, :show]
   
   def index
     @furimas = Furima.all
@@ -35,7 +35,7 @@ class FurimasController < ApplicationController
     end
   end
 
-  
+
   def destroy
     @furima = Furima.find(params[:id])
   @furima.destroy
@@ -54,5 +54,9 @@ class FurimasController < ApplicationController
 
   def set_furima
     @furima = Furima.find(params[:id])
+  end
+
+  def back_to_login
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
