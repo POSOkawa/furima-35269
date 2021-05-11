@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   end
   resources :furimas do
     resources :orders, only: [:index]
-  end
+  end  
 
 end
