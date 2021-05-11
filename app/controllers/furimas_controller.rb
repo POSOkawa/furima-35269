@@ -1,10 +1,10 @@
 class FurimasController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :contributor_confirmation, only: [:edit, :update]
   before_action :set_furima, only: [:update, :edit, :show]
+  before_action :contributor_confirmation, only: [:edit, :update]
 
   def index
-    @furimas = Furima.all
+    @furimas = Furima.all(created_at: "DESC")
   end
 
   def new
@@ -58,7 +58,7 @@ class FurimasController < ApplicationController
  
   def contributor_confirmation
   
-    if current_user == @item.user
+    if current_user == @furima.user
       redirect_to root_path
     end
     end
