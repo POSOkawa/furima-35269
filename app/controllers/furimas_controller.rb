@@ -3,7 +3,7 @@ class FurimasController < ApplicationController
   before_action :back_to_login, except: [:index, :show]
 
   def index
-    #@furimas = Furima.all
+    @furimas = Furima.all
   end
 
   def new
