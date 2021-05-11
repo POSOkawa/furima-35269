@@ -2,7 +2,7 @@ class FurimasController < ApplicationController
   before_action :back_to_login, except: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :contributor_confirmation, only: [:edit, :update]
-  before_action :set_furima, only: ["update", "edit", "show"]
+  before_action :set_furima, only: [:update, :edit, :show]
 
   def index
     @furimas = Furima.all
@@ -41,7 +41,7 @@ class FurimasController < ApplicationController
   #@furima.destroy
 
    # if @furima.destroy
-      redirect_to root_path
+      #redirect_to root_path
   #  else
  #     redirect_to root_path
   #  end
