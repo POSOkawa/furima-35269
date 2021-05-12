@@ -1,7 +1,8 @@
 class FurimasController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_furima, only: [:update, :edit, :show, :destroy]
-  before_action :contributor_confirmation, only: [:edit, :update]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+
   def index
     @furimas = Furima.all.order(created_at: "DESC")
   end
