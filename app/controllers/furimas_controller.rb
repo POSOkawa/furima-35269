@@ -33,15 +33,13 @@ class FurimasController < ApplicationController
     end
   end
 
-
- def destroy
- @furima.destroy
-   if @furima.destroy
-     redirect_to root_path
-   else
-     redirect_to root_path
-   end
- end
+  def destroy
+    if @furima.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
 
   private
   def furimas_params
