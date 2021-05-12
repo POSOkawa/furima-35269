@@ -6,6 +6,7 @@ class Furima < ApplicationRecord
     belongs_to :hassou
     belongs_to :jyoutai
   
+    has_one :order
   belongs_to :user
    has_one_attached :image
  

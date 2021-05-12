@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :furimas, only: [:new, :create, :show, :edit, :update, :destroy] do
   end
   resources :furimas do
-    resources :orders, only: [:index]
+    resources :orders, only: [:index, :create]
   end  
 
 end
