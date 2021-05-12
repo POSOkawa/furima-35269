@@ -53,7 +53,7 @@ class FurimasController < ApplicationController
  
   def contributor_confirmation
   
-    if current_user == @furima.user
+    if current_user == @furima_user
       redirect_to root_path
     end
     end
