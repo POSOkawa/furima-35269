@@ -9,12 +9,13 @@ class OrdersController < ApplicationController
   end
   
   def create
+    @furimas = Furima.all
     @furima_order = FurimaOrder.new(order_params)
     if @furima_order.valid?
       @furima_order.save
       return redirect_to root_path
     else
-      redirect_to root_path
+      render :index
     end
   end
   
