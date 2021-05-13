@@ -2,6 +2,7 @@ require 'rails_helper'
   describe FurimaOrder do
     before do
       @furima_order = FactoryBot.build(:furima_order)
+      sleep(0.3)
     end
     describe '#create' do
 
@@ -15,6 +16,11 @@ require 'rails_helper'
     end
 
     context '購入ができん時' do
+      it 'tokenがないと購入できない' do
+        @furima_order.token = nil
+        @furima_order.valid?
+        expect(@furima_order.errors.full_messages).to include("Token can't be blank")
+      end
       it 'yubinが空だと購入ができない' do
         @furima_order.yubin = ""
         @furima_order.valid?
