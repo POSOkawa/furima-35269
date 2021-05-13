@@ -14,6 +14,6 @@ FactoryBot.define do
    after(:build) do |furima|
     furima.image.attach(io: File.open('app/image/test.jpg'), filename: 'test.jpg')
   end
-  end
+end
 
 end

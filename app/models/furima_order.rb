@@ -5,10 +5,10 @@ class FurimaOrder
   with_options presence: true do
     validates :user_id
     validates :furima_id
-    validates :yubin
+    validates :yubin, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :sityoson
     validates :banti
-    validates :phone
+    validates :phone, format: { with: /\A\d{11}\z/ }
     validates :basyo_id, numericality: { other_than: 0 }
   end
 
