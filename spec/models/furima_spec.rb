@@ -2,6 +2,7 @@ require 'rails_helper'
 describe Furima do
   before do
     @furima = FactoryBot.build(:furima)
+    sleep(0.3)
   end
   describe '#create' do
 

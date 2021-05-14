@@ -8,7 +8,7 @@ require 'rails_helper'
 
     context '購入ができる時' do
       it '入力されていれば購入ができる' do
-      user = FactoryBot.create(:user)
+        user = FactoryBot.create(:user)
       furima = FactoryBot.create(:furima)
       furima_order = FactoryBot.build(:furima_order, user_id:user.id, furima_id:furima.id)
         expect(furima_order).to be_valid
@@ -51,6 +51,7 @@ require 'rails_helper'
         @furima_order.valid?
         expect(@furima_order.errors.full_messages).to include("Phone can't be blank")
       end
+      
       it 'phoneが半角数字じゃないと購入できない' do
         @furima_order.phone = "dennwa"
         @furima_order.valid?
@@ -61,6 +62,16 @@ require 'rails_helper'
         @furima_order.valid?
         expect(@furima_order.errors.full_messages).to include("Phone is invalid")
       end
+      it 'furima_idが0だと購入できない' do
+        @furima_order.furima_id = ""
+        @furima_order.valid?
+        expect(@furima_order.errors.full_messages).to include("Furima can't be blank")
+    end
+    it 'user_idが0だと購入できない' do
+      @furima_order.user_id = ""
+      @furima_order.valid?
+      expect(@furima_order.errors.full_messages).to include("User can't be blank")
     end
   end
+end
 end
