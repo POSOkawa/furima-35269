@@ -1,6 +1,6 @@
 class FurimasController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_furima, only: [:update, :edit, :show, :destroy]
+  before_action :set_furima, only: [:update, :edit, :show, :destroy, :noorder]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
   before_action :noorder, only: [:edit, :update, :destroy]
 
@@ -64,7 +64,6 @@ class FurimasController < ApplicationController
     end
     
     def noorder
-      @furima = Furima.find(params[:id])
     redirect_to root_path if @furima.order != nil
     end
 
