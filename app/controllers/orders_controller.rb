@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_order, only: [:index, :create, :honnnin, :noorder]
+  before_action :set_order, only: [:index, :create]
   before_action :honnin, only: [:index, :create]
   before_action :noorder, only: [:index, :create]
   

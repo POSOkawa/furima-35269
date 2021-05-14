@@ -1,6 +1,9 @@
 require 'rails_helper'
   describe FurimaOrder do
     before do
+      user = FactoryBot.create(:user)
+      furima = FactoryBot.create(:furima)
+      furima_order = FactoryBot.build(:furima_order, user_id:user.id, furima_id:furima.id)
       @furima_order = FactoryBot.build(:furima_order)
       sleep(0.3)
     end
@@ -8,10 +11,7 @@ require 'rails_helper'
 
     context '購入ができる時' do
       it '入力されていれば購入ができる' do
-        user = FactoryBot.create(:user)
-      furima = FactoryBot.create(:furima)
-      furima_order = FactoryBot.build(:furima_order, user_id:user.id, furima_id:furima.id)
-        expect(furima_order).to be_valid
+        expect(@furima_order).to be_valid
       end
       it 'tatemonoが空でもいける' do
         @furima_order.tatemono= ""
