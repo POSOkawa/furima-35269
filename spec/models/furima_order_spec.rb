@@ -4,7 +4,6 @@ require 'rails_helper'
       user = FactoryBot.create(:user)
       furima = FactoryBot.create(:furima)
       @furima_order = FactoryBot.build(:furima_order, user_id:user.id, furima_id:furima.id)
-      @furima_order = FactoryBot.build(:furima_order)
       sleep(0.3)
     end
     describe '#create' do
