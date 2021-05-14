@@ -13,6 +13,11 @@ require 'rails_helper'
       furima_order = FactoryBot.build(:furima_order, user_id:user.id, furima_id:furima.id)
         expect(furima_order).to be_valid
       end
+      it 'tatemonoが空でもいける' do
+        @furima_order.tatemono= ""
+        @furima_order.valid?
+        expect(@furima_order.errors.full_messages).to include("User can't be blank", "Furima can't be blank")
+      end
     end
 
     context '購入ができん時' do
