@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
   def index
       @furima_order = FurimaOrder.new
     end
-  end
   
   def create
     @furima_order = FurimaOrder.new(order_params)
@@ -45,4 +44,5 @@ end
   def set_order
     @furima = Furima.find(params[:furima_id])
   end
+
 end
