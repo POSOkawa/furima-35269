@@ -22,7 +22,7 @@ class Furima < ApplicationRecord
     validate :jyoutai_id
 
     with_options format: { with: /\A[0-9]+\z/ } do
-      validates :price, numericality: { greater_than: 299, less_than: 100000000 } 
+      validates :price, numericality: { greater_than: 299, less_than: 99999999 } 
     end
     with_options numericality: { other_than: 0 } do
       validates :basyo_id, :category_id, :futan_id, :hassou_id, :jyoutai_id

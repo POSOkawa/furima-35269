@@ -21,9 +21,9 @@ const pay = () => {
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
       document.getElementById("number").removeAttribute("name");
-      document.getElementById("code").removeAttribute("name");
-      document.getElementById("month").removeAttribute("name");
-      document.getElementById("year").removeAttribute("name");
+      document.getElementById("cvc").removeAttribute("name");
+      document.getElementById("exp-month").removeAttribute("name");
+      document.getElementById("exp-year").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
     });
