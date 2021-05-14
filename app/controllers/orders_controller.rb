@@ -5,9 +5,6 @@ class OrdersController < ApplicationController
   before_action :noorder, only: [:index, :create]
   
   def index
-    if current_user = @furima_user
-      redirect_to root_path
-    else
       @furima_order = FurimaOrder.new
     end
   end

@@ -67,6 +67,11 @@ require 'rails_helper'
         @furima_order.valid?
         expect(@furima_order.errors.full_messages).to include("Phone is invalid")
       end
+      it 'phoneに英語が入っていると購入できない' do
+        @furima_order.phone = "0901234567a"
+        @furima_order.valid?
+        expect(@furima_order.errors.full_messages).to include("Phone is invalid")
+      end
       it 'furima_idが0だと購入できない' do
         @furima_order.furima_id = ""
         @furima_order.valid?
