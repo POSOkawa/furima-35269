@@ -2,7 +2,7 @@ FactoryBot.define do
 
   factory :user do
     nickname              {"text"}
-    email                 {"text@gmail.com"}
+    email                 {Faker::Internet.free_email}
     password              {"00000a"}
     password_confirmation    {"00000a"}
     namef           {"漢字"}
