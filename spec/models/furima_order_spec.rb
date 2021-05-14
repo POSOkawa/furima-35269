@@ -14,8 +14,7 @@ require 'rails_helper'
       end
       it 'tatemonoが空でもいける' do
         @furima_order.tatemono= ""
-        @furima_order.valid?
-        expect(@furima_order.errors.full_messages).to include("User can't be blank", "Furima can't be blank")
+        expect(@furima_order).to be_valid
       end
     end
 
