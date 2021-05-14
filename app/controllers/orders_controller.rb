@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :honnin, only: [:index, :create]
+  
   def index
-    @furimas = Furima.all
+    @furima = Furima.find(params[:furima_id])
     if current_user = @furima_user
       redirect_to root_path
     else
@@ -9,7 +12,6 @@ class OrdersController < ApplicationController
   end
   
   def create
-    @furimas = Furima.all
     @furima_order = FurimaOrder.new(order_params)
     @furima = Furima.find(params[:furima_id])
     if @furima_order.valid?
@@ -35,4 +37,11 @@ def pay_furima
       )
 end
 
+  
+
+  def honnin
+    @furima = Furima.find(params[:furima_id])
+    redirect_to root_path if current_user.id == @furima.user_id
+  end
+  
 end

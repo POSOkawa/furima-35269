@@ -7,15 +7,15 @@
     </h1>
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
-    <% @furimas.each do |furima| %>
-      <%= image_tag furima.image, class: 'buy-item-img' %>
+    
+      <%= image_tag @furima.image, class: 'buy-item-img' %>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
-          <%= furima.name %>
+          <%= @furima.name %>
         </h2>
         <div class='buy-item-price'>
-          <p class='item-price-text'>¥<%= furima.price %></p>
-          <p class='item-price-sub-text'><%= furima.futan.name %></p>
+          <p class='item-price-text'>¥<%= @furima.price %></p>
+          <p class='item-price-sub-text'><%= @furima.futan.name %></p>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
         支払金額
       </h1>
       <p class='item-payment-price'>
-        ¥<%= furima.price %>
+        ¥<%= @furima.price %>
       </p>
     </div>
     <%# /支払額の表示 %>
@@ -127,7 +127,7 @@
       <%= f.submit "購入" ,class:"buy-red-btn" %>
     </div>
     <% end %>
-    <% end %>
+    
   </div>
 </div>
 <%= render "shared/second-footer"%>
