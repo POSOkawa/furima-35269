@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_order, only: [:index, :create, :honnnin, :noorder]
   before_action :honnin, only: [:index, :create]
   before_action :noorder, only: [:index, :create]
   
   def index
-    @furima = Furima.find(params[:furima_id])
     if current_user = @furima_user
       redirect_to root_path
     else
@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
   
   def create
     @furima_order = FurimaOrder.new(order_params)
-    @furima = Furima.find(params[:furima_id])
     if @furima_order.valid?
       pay_furima
       @furima_order.save
@@ -39,12 +38,14 @@ def pay_furima
 end
 
   def honnin
-    @furima = Furima.find(params[:furima_id])
     redirect_to root_path if current_user.id == @furima.user_id
   end
 
   def noorder
-    @furima = Furima.find(params[:furima_id])
   redirect_to root_path if @furima.order != nil
+  end
+
+  def set_order
+    @furima = Furima.find(params[:furima_id])
   end
 end

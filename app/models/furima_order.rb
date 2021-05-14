@@ -9,7 +9,7 @@ class FurimaOrder
     validates :yubin, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :sityoson
     validates :banti
-    validates :phone, format: { with: /\A\d{11}\z/ }
+    validates :phone, format: { with: /\A\d{,11}\z/ }
     validates :basyo_id, numericality: { other_than: 0 }
   end
 
